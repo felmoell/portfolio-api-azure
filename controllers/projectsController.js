@@ -71,8 +71,8 @@ module.exports = function (authRateLimiter) {
     });
 
 
-    router.get('/allRepos/manualImport',authRateLimiter, function (req, res, next) {
-    axios.get('https://api.github.com/users/felmoell/repos')
+    router.get('/allRepos/manualImport', authRateLimiter, function (req, res, next) {
+        axios.get('https://api.github.com/users/felmoell/repos')
             .then(response => {
                 const updatePromises = response.data.map(element => {
                     const filter = { id: element.id };
