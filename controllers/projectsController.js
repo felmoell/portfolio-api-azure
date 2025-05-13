@@ -72,13 +72,7 @@ module.exports = function (authRateLimiter) {
 
 
     router.get('/allRepos/manualImport',authRateLimiter, function (req, res, next) {
-        res.status(200).send({
-            message: "All repositories imported successfully",
-            importedCount: "12",
-        });
-
-
-      /*  axios.get('https://api.github.com/users/felmoell/repos')
+    axios.get('https://api.github.com/users/felmoell/repos')
             .then(response => {
                 const updatePromises = response.data.map(element => {
                     const filter = { id: element.id };
@@ -201,7 +195,7 @@ module.exports = function (authRateLimiter) {
                     message: "An error occurred during import",
                     error: error.message
                 });
-            });*/
+            });
     });
 
     return router;
